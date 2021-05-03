@@ -10,5 +10,3 @@ The main goals of this project are to learn Python! Specifically, this project w
 * Writing Python and Django
 * Working with Git
 * Working with other developers
-
-#test branch
