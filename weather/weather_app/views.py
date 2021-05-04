@@ -5,6 +5,8 @@ from .forms import CreateUserForm
 
 from django.contrib import messages
 
+from django.contrib.auth import authenticate, login, logout
+
 
 def registerPage(request):
     form = CreateUserForm()
@@ -25,5 +27,16 @@ def index(request):
     return render(request, 'weather/index.html')
 
 
-def login(request):
-    return render(request, 'weather/login.html')
+def loginPage(request):
+
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+
+    return render(request, 'weather/login.html', {})
