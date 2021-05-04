@@ -28,7 +28,6 @@ def index(request):
 
 
 def loginPage(request):
-
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -38,5 +37,13 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('index')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
 
     return render(request, 'weather/login.html', {})
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect("login")
+
