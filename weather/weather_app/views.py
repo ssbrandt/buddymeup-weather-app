@@ -18,8 +18,7 @@ def registerPage(request):
 
             return redirect('login')
 
-    context = {'form': form}
-    return render(request, "weather/register.html")
+    return render(request, "weather/register.html", {'form': form})
 
 
 def index(request):
