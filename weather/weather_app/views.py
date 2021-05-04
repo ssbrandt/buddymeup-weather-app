@@ -7,7 +7,7 @@ from .forms import CityForm
 
 def index(request):
 
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=f0d9362414d6e2bada18d7816f23464a'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid={insert_token_here}'
 
 
     if request.method == "POST":
